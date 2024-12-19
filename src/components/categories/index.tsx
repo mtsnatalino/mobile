@@ -1,17 +1,18 @@
-import { FlatList } from "react-native";
-import { Category } from "../category";
-import { s } from "./styles";
+import { FlatList } from "react-native"
+
+import { s } from "./styles"
+import { Category } from "../category"
 
 export type CategoriesProps = {
-  id: string;
-  name: string;
-}[];
+  id: string
+  name: string
+}[]
 
 type Props = {
-  data: CategoriesProps;
-  selected: string;
-  onSelect: (id: string) => void;
-};
+  data: CategoriesProps
+  selected: string
+  onSelect: (id: string) => void
+}
 
 export function Categories({ data, selected, onSelect }: Props) {
   return (
@@ -23,7 +24,7 @@ export function Categories({ data, selected, onSelect }: Props) {
           name={item.name}
           iconId={item.id}
           onPress={() => onSelect(item.id)}
-          IsSelected={item.id === selected}
+          isSelected={item.id === selected}
         />
       )}
       horizontal
@@ -31,5 +32,5 @@ export function Categories({ data, selected, onSelect }: Props) {
       contentContainerStyle={s.content}
       style={s.container}
     />
-  );
+  )
 }
